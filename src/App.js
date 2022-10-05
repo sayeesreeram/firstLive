@@ -1,5 +1,10 @@
 import { makeStyles } from '@mui/styles';
 import Header from './Components/Header';
+import LinkedInIcon from '@mui/icons-material/LinkedIn';
+import GitHubIcon from '@mui/icons-material/GitHub';
+import EmailIcon from '@mui/icons-material/Email';
+import { useSelector } from 'react-redux';
+import FirstSection from './Components/FirstSection';
 
 const useStyles = makeStyles({
   app: {
@@ -23,15 +28,12 @@ const useStyles = makeStyles({
 
 function App() {
   const style = useStyles()
+  const activeTab=useSelector((state)=>state.activeTab)
   return (
     <div className={style.app}>
       <div className={style.firstSection}>
         <Header />
-        <div className={style.firstSectionContent}>
-            <div style={{color:"yellow",font:"40px Work Sans"}}>Hi, My Name is Sayee Sree Ram G</div>
-            <div style={{marginTop:"3%",color:"white",font:"24px Work Sans"}}>A Software Developer with a passion in learning </div>
-            <div style={{color:"white",font:"24px Work Sans"}}>and implementing </div>
-        </div>
+        {activeTab==1&&<FirstSection/>}
       </div>
     </div>
   );
